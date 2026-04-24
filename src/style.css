@@ -1,0 +1,517 @@
+/* html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    
+    font-family: Arial, sans-serif;
+    background-color: #f8f8fa;
+    color: #343a40;
+}
+
+:root {
+    --mainFontSize: 1.2rem;
+    --fontWeight: bold;
+    --mainGap: 1.5rem;
+}
+
+#wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    background-color: aliceblue;
+    height: 100vh;
+    gap: 1px;
+}
+
+#navContainer {
+    grid-row-start: 1;
+    grid-row-end: 6;
+    grid-column-start: 1;
+    grid-column-end: 1;
+    background-color: rgb(61, 82, 165);
+}
+
+#header {
+    grid-row-start: 1;
+    grid-row-end: 1;
+    grid-column-start: 2;
+    grid-column-end: 5;
+
+    border: solid 1px black;
+    align-content: center;
+    text-align: center;
+    color: black;
+}
+
+
+.mainContent {
+    grid-row-start: 2;
+    grid-row-end: 6;
+    grid-column-start: 2;
+    grid-column-end: 5;
+    border: solid 1px black;
+    display: grid;
+    justify-items: center;
+    align-content: start;
+    overflow: scroll;
+}
+
+#footer {
+    grid-row-start: 6;
+    grid-row-end: 6;
+    grid-column-start: 2;
+    grid-column-end: 5;
+    border: solid 1px black;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    flex: 1;
+    flex-shrink: 0;
+    padding: 0.5rem;
+    color: black;
+    height: 10rem;
+}
+
+h2 {
+    font-size: var(--mainFontSize);
+    margin: 0;
+    line-height: 1;
+}
+
+.headerTextContainer {
+    grid-row-start: 1;
+    grid-column-start: 1;
+
+    grid-column-end: 2;
+    grid-row-end: 2;
+
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+    justify-content: center;
+
+    background-color: rgb(38, 45, 73);
+    color: white;
+    gap: var(--mainGap);
+}
+
+.headerRow {
+    display: flex;
+    align-items: center;
+    gap: var(--mainGap);
+}
+
+.headerRow>div {
+    display: flex;
+    align-items: center;
+}
+
+.headerSubtitle {
+    margin: 0;
+    font-size: var(--mainFontSize);
+    color: rgba(255, 255, 255, 0.75);
+}
+
+img {
+    width: 2rem;
+    height: 2rem;
+}
+
+.navContainer {
+    min-height: 100vh;
+}
+
+
+.projectsContainer {
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 1;
+
+    height: 20rem;
+}
+
+.projectDivContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: var(--mainGap);
+}
+
+.addedProjectContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+
+.projectTitle {
+    font-size: var(--mainFontSize);
+    color: rgba(255, 255, 255, 0.75);
+
+}
+
+.projectsDiv {
+    border-bottom: solid 0.1rem grey;
+    padding: 1rem;
+}
+
+.projectList {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    border: solid 0.1rem grey;
+
+}
+
+
+.buttonContainer {
+    grid-row-start: 6;
+    grid-row-end: 8;
+    grid-column-start: 1;
+    grid-column-end: -4;
+
+    background-color: rgb(61, 82, 165);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.projectLinks {
+    border: none;
+    border-radius: 5px;
+    height: 2.5rem;
+    padding: 0.5rem;
+    margin: 0.3rem;
+    width: 10rem;
+    font-weight: var(--fontWeight);
+    font-size: var(--mainFontSize);
+    font-family: Arial, sans-serif;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.projectLinks:hover,
+.addButton:hover {
+    color: white;
+}
+
+.addButton {
+    background-color: transparent;
+    border: none;
+    border-style: dashed;
+    border-radius: 5px;
+    margin: 1rem;
+    padding: 1rem;
+    flex: 1;
+    font-size: var(--mainFontSize);
+    cursor: pointer;
+}
+
+.addedProjectsContainer {
+    grid-row-start: 3;
+    grid-row-end: 6;
+    grid-column-start: 1;
+    grid-column-end: 2;
+
+    display: grid;
+    flex-direction: column;
+    justify-items: center;
+    align-content: start;
+    padding: 1rem;
+    height: 20rem;
+    overflow: scroll;
+}
+
+
+.content {
+    background-color: rgb(238, 234, 234);
+    display: flex;
+    flex: 1 0 auto;
+    flex-direction: column;
+    color: white;
+    width: 100%;
+}
+
+
+h1 {
+    margin: 0;
+    font-size: var(--mainFontSize);
+    margin-bottom: 0.5rem;
+    line-height: 1;
+}
+
+input {
+    height: 2rem;
+    width: 100%;
+    border-radius: 5px;
+    padding: 0 1rem;
+
+}
+
+#addToDoButton {
+    margin: 1rem;
+    padding: 1rem;
+    cursor: pointer;
+    background-color: rgb(53, 152, 218);
+    border: none;
+    font-weight: var(--fontWeight);
+    color: white;
+    border-radius: 5px;
+}
+
+.clickDeleteImg {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.projectButton {
+    border: none;
+    border-radius: 5px;
+    margin: 1rem;
+    width: 1rem;
+    flex: 1;
+    font-weight: var(--fontWeight);
+    font-size: var(--mainFontSize);
+    font-family: Arial, sans-serif;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.projectButton:hover {
+    color: white;
+}
+
+#projectUpForm {
+    border: solid black 2px;
+    padding: 1rem;
+    width: 20%;
+    height: 15%;
+    align-items: center;
+    gap: var(--mainGap);
+
+}
+
+#todoUpForm {
+    border: solid black 2px;
+    padding: 1rem;
+    width: 25rem;
+    height: 20rem;
+    padding: 0 18px;
+    color: black;
+}
+
+#todoUpForm>div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+}
+
+#todoUpForm>.form-example {
+    display: table-row;
+    gap: var(--mainGap);
+}
+
+label,
+input {
+    display: table-cell;
+}
+
+label {
+    padding-right: 10px;
+}
+
+#dueDate {
+    border-radius: 0.4rem;
+    border: 2px solid black;
+    padding: 0.5rem;
+    width: 10rem;
+    height: 1rem;
+    margin: 1rem;
+}
+
+#description {
+    word-wrap: break-word;
+    overflow: scroll;
+    height: 10rem;
+    width: 20rem;
+    border: solid 1px black;
+    border-radius: 10px;
+}
+
+.toDoContainer {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto;
+    width: 90%;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 2px;
+    background-color: #777;
+    margin-bottom: 2px;
+    gap: var(--mainGap);
+
+}
+
+.buttonCollapsible {
+    grid-row: 1;
+    grid-column: 2;
+    justify-self: stretch;
+    align-self: center;
+    text-align: center;
+    background-color: #777;
+    width: 100%;
+    color: white;
+    cursor: pointer;
+    padding: 0.5rem;
+    border: none;
+    outline: none;
+
+    border-radius: 2px;
+}
+
+.active,
+.buttonCollapsible:hover {
+    background-color: #555;
+}
+
+.buttonCollapsible::after {
+    content: '\2B9F';
+    color: white;
+    font-weight: var(--fontWeight);
+    float: right;
+    margin-left: 5px;
+    font-size: 1rem;
+}
+
+.active::after {
+    content: "\2B9D";
+    font-size: var(--mainFontSize);
+}
+
+.radioDiv input[type="checkbox"] {
+    display: none;
+}
+
+.radioDiv label {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #333;
+    border-radius: 4px;
+    background: white;
+    cursor: pointer;
+    position: relative;
+}
+
+.radioDiv input[type="checkbox"]:checked+label {
+    background: #2196F3;
+    border-color: #2196F3;
+}
+
+.radioDiv label::after {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 0.5px;
+    width: 6px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    opacity: 0;
+    transform: rotate(45deg);
+}
+
+.radioDiv input[type="checkbox"]:checked+label::after {
+    opacity: 1;
+}
+
+.radioDiv {
+    grid-row: 1;
+    grid-column: 1;
+}
+
+
+
+.middleRow {
+    padding: 0 9px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background-color: rgb(177, 176, 176);
+    color: white;
+    width:90%;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    overflow: scroll;
+}
+
+.buttonColContainer {
+    color: black;
+}
+
+#todoName {
+    font-size: var(--mainFontSize);
+}
+
+.deleteTodo {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    grid-row: 1;
+    grid-column: 3;
+    justify-self: end;
+}
+
+.deleteTodo:hover {
+    background-color: red;
+    border-radius: 50px;
+}
+
+.editButton {
+    margin: 1rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    background-color: rgb(53, 152, 218);
+    font-weight: bold;
+    color: white;
+    border-radius: 5px;
+}
+
+.toDoContainer.completed {
+    color: black;
+    background-color: #74fc92;
+}
+
+.toDoContainer.completed .buttonCollapsible {
+    color: black;
+    background-color: #74fc92;
+    text-decoration: line-through;
+}
+
+.middleRow.complete {
+    color: black;
+    background-color: #74fc92;
+    text-decoration: line-through;
+}
+
+.priority-low {
+  border-left: 6px solid #4caf50;
+}
+.priority-medium {
+  border-left: 6px solid #ff9800; 
+}
+.priority-high {
+  border-left: 6px solid #f44336; 
+} */

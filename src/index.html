@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do App</title>
+</head>
+
+<body>
+    <div id="wrapper">
+        <div class="projectForm">
+            <dialog id="projectUpForm">
+                <h1>Add Project</h1>
+                <input type="text" id="projectInput" placeholder="Input your Project.." required>
+                <div>
+                    <button type="button" id="createProject">Create</button>
+                    <button type="button" id="cancelProject">Cancel</button>
+                </div>
+            </dialog>
+        </div>
+
+        <div class="todoForm">
+            <dialog id="todoUpForm">
+                <div class = "contentInput">
+                    <form id="myForm">
+                        <div class="form-example">
+                            <h1>New Todo</h1>
+                            <img src="./assets/todo.svg" value="todo" placeholder="todoImage">
+                            <input type="text" id="todoInput" placeholder="Todo..." required >
+                            <span class="checkmark"></span>
+                        </div>
+
+                        <div class="form-example">
+                            <label for="start">Due Date:
+                            <input type="date" id="dueDate" name="Due-Date" min="2026-01-01"
+                                max="2027-01-01" required /></label>
+                        </div>
+
+                        <div class="form-example">
+                            <label for="numberAmount">Priority:
+                            <select name="priority" id="priority" required>
+                                <option id="Low">Low</option>
+                                <option id="Medium" >Medium</option>
+                                <option id="High" >High</option>
+                            </select></label>
+                        </div>
+                        
+                        <div class="form-example" >
+                            <label for="description"> Description:
+                                <div contenteditable="true" id="description" name="description"></div>
+                            </label>
+                        </div>
+
+                        <button type="submit" id="createTodo" name="submit" value="Create" >Create</button>
+                        <button type="button" id="cancelTodo" name="close" value="Cancel">Cancel</button>
+                    </form>
+                </div>
+            </dialog>
+        </div>
+    </div>
+</body>
+
+</html>

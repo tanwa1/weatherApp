@@ -1,0 +1,185 @@
+@media (max-width: 768px) {
+    #navContainer {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 13rem;
+        height: 90vh;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.5s, transform 0.4s;
+        z-index: 1000;
+        transform: translateX(-100%);
+    }
+
+    #navContainer.show {
+        opacity: 0.95;
+        pointer-events: auto;
+        transform: translateX(0);
+    }
+
+    .headerTextContainer {
+        width: 12rem;
+        gap: 5px;
+    }
+
+    h2,
+    .headerSubtitle,
+    .projectLinks,
+    .projectButton,
+    .addButton,
+    .projectTitle {
+        font-size: 1rem;
+    }
+
+    img {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+    .projectDivContainer {
+        gap: 0;
+    }
+
+    .projectsDiv {
+        padding: 0.4rem;
+    }
+
+    .addedProjectsContainer {
+        height: 15rem;
+        padding: 0.4rem;
+    }
+
+    .addButton {
+        margin: 0.5rem;
+        padding: 0.5rem;
+        width: 12rem;
+    }
+
+    .buttonContainer {
+        background-color: transparent;
+    }
+
+    #projectUpForm {
+        height: 15%;
+    }
+    
+    #todoUpForm {
+    border: solid black 2px;
+    padding: 1rem;
+    width: 20rem;
+    height: 25rem;
+    padding: 0 18px;
+    color: black;
+    
+    // #todoInput{
+        
+    // }
+    
+        #createTodo, #cancelTodo{
+        margin: 0.2rem;
+        padding: 0.3rem;
+        cursor: pointer;
+        background-color: rgb(53, 152, 218);
+        border: none;
+        font-weight: var(--fontWeight);
+        color: white;
+        border-radius: 5px;
+    }
+    
+    
+}
+
+    #header {
+        grid-column-start: 1;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-content: center;
+        align-items: center;
+
+        .menu {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn1 {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .arrow-bar {
+            width: 32px;
+            height: 4px;
+            background: #212121;
+            border-radius: 2px;
+            position: relative;
+            transition: 0.4s;
+        }
+
+        .arrow-bar::before,
+        .arrow-bar::after {
+            content: "";
+            position: absolute;
+            width: 32px;
+            height: 4px;
+            background: #212121;
+            border-radius: 2px;
+            transition: 0.4s;
+        }
+
+        .arrow-bar::before {
+            top: -10px;
+            left: 0;
+            transform: rotate(0deg);
+        }
+
+        .arrow-bar::after {
+            top: 10px;
+            left: 0;
+            transform: rotate(0deg);
+        }
+
+        .btn1.open .arrow-bar {
+            background: transparent;
+        }
+
+        .btn1.open .arrow-bar::before {
+            width: 24px;
+            left: 8px;
+            top: 0px;
+            transform: rotate(45deg);
+        }
+
+        .btn1.open .arrow-bar::after {
+            width: 24px;
+            left: 8px;
+            top: 0px;
+            transform: rotate(-45deg);
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    @media (max-width: 680px) {
+        .addedProjectsContainer {
+            height: 10rem;
+        }
+    }
+
+
+    .mainContent {
+        grid-column-start: 1;
+    }
+
+    #footer {
+        grid-column-start: 1;
+    }
+
+}
