@@ -1,12 +1,13 @@
 {
-  "name": "todoapp",
+  "name": "weatherapp",
   "version": "1.0.0",
   "main": "index.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack serve --open --config webpack.dev.js",
-    "build": "webpack --config webpack.prod.js"
+    "build": "webpack --config webpack.prod.js",
+    "lint": "eslint src/**/*.js"
   },
   "keywords": [],
   "author": "",

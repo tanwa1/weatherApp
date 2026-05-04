@@ -1,15 +1,64 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
-</head>
+  </head>
 
-<body>
-    
+  <body>
+    <div class="mainInterface">
+      <div class="sideBar">
+        <div class="searchCity">
+          <div class="cityContainer">
+            <div class="searchBar">
+              <input
+                type="text"
+                id="searchCity"
+                name="searchCity"
+                placeholder="Search City..."
+              /><br />
+              <button type="button" id="searchButton">Search</button>
+            </div>
+
+            <div class="city-info">
+              <p id="city-name"></p>
+              <p id="city-date"></p>
+            </div>
+          </div>
+        </div>
+
+        <div id="stat">
+          <div class="stat-header">
+            <span class="label"></span>
+            <span class="value"></span>
+          </div>
+
+          <div class="bar-track">
+            <div class="bar-fill"></div>
+          </div>
+        </div>
+
+        <div class="sun-info">
+          <div class="sun-row">
+            <span class="label">Sunrise: </span>
+            <span class="value sunrise"></span>
+          </div>
+          <div class="sun-row">
+            <span class="label">Sunset: </span>
+            <span class="value sunset"></span>
+          </div>
+          <div class="sun-row">
+            <span class="label">Precipitation: </span>
+            <span class="value precip"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="mainContent">
+        <div class="weather"></div>
+        <div class="forecasts"></div>
+      </div>
     </div>
-</body>
-
+  </body>
 </html>
