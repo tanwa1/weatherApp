@@ -68,11 +68,95 @@ body {
     border: solid 1px black;
 
     .weather {
+      display: flex;
       border: solid 1px black;
+      gap: 3px;
+
+      .currentWeather {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      // #currentWeatherTitle {
+      // }
+
+      #currentTemperature {
+        font-size: 5rem;
+        height: 5rem;
+      }
+
+      .temperatureFeel {
+        font-size: 5rem;
+        height: 5rem;
+      }
+      .weatherImage {
+        width: 100%;
+      }
+      // #maxTemp,
+      // #minTemp {
+      // }
     }
 
     .forecasts {
+      display: flex;
+      flex-direction: column;
       border: solid 1px black;
+      gap: 12px;
+
+      .cardContainer {
+        display: flex;
+        flex-direction: row;
+        border: solid 1px black;
+        gap: 5px;
+        margin: 5px;
+        width: 100rem;
+        overflow-x: scroll;
+      }
+
+      .forecast-card {
+        background-color: #1e2a3a;
+        color: #fff;
+        padding: 16px;
+        border-radius: 12px;
+        flex: 1 0 220px; // grows, doesn't shrink below 220px
+        min-width: 180px;
+        max-width: 300px;
+        height: 15rem;
+        text-align: center;
+        font-family: sans-serif;
+      }
+
+      .forecast-day {
+        font-size: 14px;
+        margin-bottom: 10px;
+      }
+
+      .forecast-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #d4a85f;
+        margin: 0 auto 10px auto;
+      }
+
+      .forecast-max {
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      .forecast-min {
+        font-size: 14px;
+        opacity: 0.7;
+      }
+
+      .forecast-desc {
+        font-size: 12px;
+        margin-top: 6px;
+        opacity: 0.8;
+      }
     }
   }
 }

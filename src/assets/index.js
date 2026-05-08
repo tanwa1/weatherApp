@@ -1,9 +1,9 @@
-export {default as addTask } from "./addTask.svg";
-export {default as upcoming } from "./addTask.svg";
-export {default as lowPrio } from "./lowPrio.svg";
-export {default as medPrio } from "./medPrio.svg";
-export {default as highPrio } from "./highPrio.svg";
-export {default as noteApp } from "./noteApp.svg";
-export {default as complete } from "./complete.svg";
-export {default as projectIcon } from "./projectIcon.svg";
-export {default as deleteIcon } from "./deleteIcon.svg";
+export {default as sunny } from "./sunny.svg";
+// export {default as upcoming } from "./addTask.svg";
+// export {default as lowPrio } from "./lowPrio.svg";
+// export {default as medPrio } from "./medPrio.svg";
+// export {default as highPrio } from "./highPrio.svg";
+// export {default as noteApp } from "./noteApp.svg";
+// export {default as complete } from "./complete.svg";
+// export {default as projectIcon } from "./projectIcon.svg";
+// export {default as deleteIcon } from "./deleteIcon.svg";
