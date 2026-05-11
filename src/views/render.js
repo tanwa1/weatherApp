@@ -1,5 +1,17 @@
 import { format, parseISO } from "date-fns";
 import { sunny } from "../assets/index.js";
+import {
+  clear,
+  fog,
+  overcast,
+  partlyCloudy,
+  rain,
+  snow,
+  thunderStorm,
+  windy,
+  rainOverCast,
+  rainPartialCloud
+} from "../assets/index.js";
 
 export function renderCity(data) {
   console.log(data);
@@ -102,7 +114,10 @@ export function renderCurrentWeather(data) {
 
 export function renderForecasts(data) {
   const forecastsContainer = document.querySelector(".forecasts");
-  forecastsContainer.innerHTML = "";
+
+  const oldCardContainer = forecastsContainer.querySelector(".cardContainer");
+  if (oldCardContainer) oldCardContainer.remove();
+
   const current = data.days;
   const cardContainer = document.createElement("div");
   cardContainer.className = "cardContainer";
@@ -146,11 +161,30 @@ export function renderForecasts(data) {
 
     const formatDate = format(parseISO(current.datetime), "EEEE");
 
+    const weatherConditions = current.conditions;
+    console.log(weatherConditions);
+
+    const weatherMap = new Map();
+
+    weatherMap.set("Clear", clear);
+    weatherMap.set("Fog", fog);
+    weatherMap.set("Overcast", overcast);
+    weatherMap.set("Partially cloudy", partlyCloudy);
+    weatherMap.set("Rain", rain);
+    weatherMap.set("Snow", snow);
+    weatherMap.set("Thunderstorm", thunderStorm);
+    weatherMap.set("Windy", windy);
+    weatherMap.set("Rain, Overcast", rainOverCast);
+    weatherMap.set("Rain, Partially cloudy", rainPartialCloud);
+
+    const iconSrc = weatherMap.get(weatherConditions);
+
+    icon.innerHTML = `<img src="${iconSrc}" alt="${weatherConditions}"/>`;
+
     day.textContent = formatDate;
     max.textContent = current.tempmax;
     min.textContent = current.tempmin;
     desc.textContent = current.conditions;
-    
   });
 }
 

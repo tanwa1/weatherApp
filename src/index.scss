@@ -3,9 +3,23 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-  background-color: #f8f8fa;
   color: #343a40;
 }
+#foo {
+  display: none;
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+#foo.active {
+  display: block;
+}
+
 .mainInterface {
   display: flex;
   flex-direction: row;
@@ -63,6 +77,7 @@ body {
 
   .mainContent {
     display: grid;
+    grid-template-rows: 1fr 1fr;
     width: 100%;
     gap: 1px;
     border: solid 1px black;
@@ -93,6 +108,7 @@ body {
         height: 5rem;
       }
       .weatherImage {
+        border: 1px solid black;
         width: 100%;
       }
       // #maxTemp,
@@ -106,10 +122,16 @@ body {
       border: solid 1px black;
       gap: 12px;
 
+      .fifteenForecast {
+        font-size: 1.5rem; // ✅ slightly bigger title
+        font-weight: bold;
+        padding: 12px;
+      }
+
       .cardContainer {
+        margin-top: auto;
         display: flex;
         flex-direction: row;
-        border: solid 1px black;
         gap: 5px;
         margin: 5px;
         width: 100rem;
@@ -134,13 +156,13 @@ body {
         margin-bottom: 10px;
       }
 
-      .forecast-icon {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        background-color: #d4a85f;
-        margin: 0 auto 10px auto;
-      }
+      // .forecast-icon {
+      //   width: 40px;
+      //   height: 40px;
+      //   border-radius: 50%;
+      //   background-color: #d4a85f;
+      //   margin: 0 auto 10px auto;
+      // }
 
       .forecast-max {
         font-size: 20px;
