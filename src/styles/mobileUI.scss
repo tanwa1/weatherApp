@@ -1,0 +1,12 @@
+@media (max-width: 768px) {
+  .mainInterface {
+    flex-direction: column;
+  }
+
+  .mainContent {
+    order: 1;
+  }
+  .sideBar {
+    order: 2;
+  }
+}

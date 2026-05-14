@@ -1,4 +1,5 @@
-import "./index.scss";
+import "./styles/index.scss";
+import "./styles/mobileUI.scss";
 import "./models/fetchData.js";
 import "./controllers/controller.js";
 import { loadCityData } from "./models/storage.js";

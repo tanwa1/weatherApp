@@ -9,23 +9,24 @@
   --text-muted: #6b7280;
   --text-accent: #93c5fd;
 
-  --bar-humidity: #378ADD;
-  --bar-wind: #1D9E75;
-  --bar-uv: #EF9F27;
-  --bar-visibility: #534AB7;
+  --bar-humidity: #378add;
+  --bar-wind: #1d9e75;
+  --bar-uv: #ef9f27;
+  --bar-visibility: #534ab7;
 
-  --color-sunrise: #FAC775;
-  --color-sunset: #EF9F27;
+  --color-sunrise: #fac775;
+  --color-sunset: #ef9f27;
 }
 
-div, span{
+div,
+span {
   color: var(--text-primary);
 }
 
-.sunrise{
+.sunrise {
   color: var(--color-sunrise);
 }
-.sunset{
+.sunset {
   color: var(--color-sunset);
 }
 
@@ -34,6 +35,8 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
+  overflow-x: hidden;
+  box-sizing: border-box;
   color: var(--text-primary);
 }
 
@@ -65,18 +68,25 @@ body {
 
   .sideBar {
     display: grid;
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
     min-height: 100vh;
     gap: 1px;
     background-color: var(--bg-sidebar);
     width: 350px;
     flex-shrink: 0;
 
-    #stats{
-      margin: 1.5rem;
+    #stats {
+      margin: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: stretch; // ✅ stretch so bars fill the width
+      gap: 16px;
+    }
+    .stat {
+      width: 100%; // ✅ full width of parent
     }
 
-    .searchCity,
     .sun-info {
       display: flex;
       flex-direction: column;
@@ -97,15 +107,7 @@ body {
     }
     .bar-fill {
       height: 4px;
-      width: 100%;
       border-radius: 2px;
-    }
-
-    .searchBar {
-      display: flex;
-      justify-content: center;
-      flex-direction: row;
-      gap: 3px;
     }
 
     .city-info {
@@ -116,10 +118,54 @@ body {
 
   .mainContent {
     display: grid;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: auto 1fr 1fr; // searchCity | weather | forecasts
     width: 100%;
     gap: 1px;
     background-color: var(--bg-main);
+
+    .searchCity {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+
+      .searchBar {
+        display: flex;
+        position: relative;
+        justify-content: center;
+        flex-direction: row;
+        gap: 3px;
+
+        input {
+          background-color: var(--bg-card);
+          border: none;
+          border-radius: 20px;
+          padding: 8px 16px 8px 36px;
+          color: var(--text-primary);
+          font-size: 0.9rem;
+          outline: none;
+          // width: 100%;
+
+          &::placeholder {
+            color: var(--text-muted);
+          }
+        }
+
+        button {
+          background: none;
+          border: none;
+          cursor: pointer;
+          color: var(--text-muted);
+          font-size: 1rem;
+          padding: 0 8px;
+
+          &:hover {
+            color: var(--text-primary);
+          }
+        }
+      }
+    }
 
     .weather {
       display: flex;
@@ -134,7 +180,7 @@ body {
       }
 
       #currentTemperature {
-        font-size: 5rem;
+        font-size: 4rem;
         height: 5rem;
       }
 
@@ -149,9 +195,9 @@ body {
         align-items: center;
         width: 100%;
 
-        img{
-          height: 30rem;
-          width: 30rem;
+        img {
+          height: 25rem;
+          width: 25rem;
         }
       }
     }
@@ -162,7 +208,7 @@ body {
       gap: 12px;
 
       .fifteenForecast {
-        font-size: 1.5rem; 
+        font-size: 1.5rem;
         font-weight: bold;
         padding: 12px;
       }
@@ -182,7 +228,7 @@ body {
         color: #fff;
         padding: 16px;
         border-radius: 12px;
-        flex: 1 0 220px; 
+        flex: 1 0 220px;
         min-width: 180px;
         max-width: 300px;
         height: 15rem;

@@ -8,3 +8,4 @@ export {default as thunderStorm } from "./thunderstorm.gif";
 export {default as windy } from "./windy.gif";
 export {default as rainOverCast } from "./rain_overcast.gif";
 export {default as rainPartialCloud } from "./rain_partly_cloudy.gif";
+export {default as snowRainPartialCloud } from "./snow_rain_partly_cloudy.gif";

@@ -10,6 +10,7 @@ import {
   windy,
   rainOverCast,
   rainPartialCloud,
+  snowRainPartialCloud
 } from "../assets/index.js";
 
 export function renderCity(data) {
@@ -160,6 +161,7 @@ export function renderForecasts(data) {
     weatherMap.set("Windy", windy);
     weatherMap.set("Rain, Overcast", rainOverCast);
     weatherMap.set("Rain, Partially cloudy", rainPartialCloud);
+    weatherMap.set("Snow, Rain, Partially cloudy", snowRainPartialCloud);
 
     const iconSrc = weatherMap.get(weatherConditions);
     const iconCurrentWeather = weatherMap.get(currentDay);
@@ -172,4 +174,7 @@ export function renderForecasts(data) {
     min.textContent = current.tempmin;
     desc.textContent = current.conditions;
   });
+
+  document.getElementById("visibilityValue").textContent = 
+  `${current.visibility ?? "N/A"} km`;
 }
