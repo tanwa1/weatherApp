@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
   </head>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/spin.js/spin.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/spin.js/spin.css" />
   <body>
     <div id="foo"></div>
     <div class="mainInterface">
@@ -29,14 +29,45 @@
           </div>
         </div>
 
-        <div id="stat">
-          <div class="stat-header">
-            <span class="label"></span>
-            <span class="value"></span>
+        <div id="stats">
+          <div class="stat">
+            <div class="stat-header">
+              <span class="label">Humidity</span>
+              <span id="humidityValue" class="value"></span>
+            </div>
+            <div class="bar-track">
+              <div id="humidityBar" class="bar-fill"></div>
+            </div>
           </div>
 
-          <div class="bar-track">
-            <div class="bar-fill" style="width: 78%; background: #378ADD;"></div>
+          <div class="stat">
+            <div class="stat-header">
+              <span class="label">Wind Speed</span>
+              <span id="windValue" class="value"></span>
+            </div>
+            <div class="bar-track">
+              <div id="windBar" class="bar-fill"></div>
+            </div>
+          </div>
+
+          <div class="stat">
+            <div class="stat-header">
+              <span class="label">UV Index</span>
+              <span id="uvValue" class="value"></span>
+            </div>
+            <div class="bar-track">
+              <div id="uvBar" class="bar-fill"></div>
+            </div>
+          </div>
+
+          <div class="stat">
+            <div class="stat-header">
+              <span class="label">Visibility</span>
+              <span id="visibilityValue" class="value"></span>
+            </div>
+            <div class="bar-track">
+              <div id="visibilityBar" class="bar-fill"></div>
+            </div>
           </div>
         </div>
 
@@ -62,14 +93,9 @@
             <div id="currentWeatherTitle">Current Weather</div>
             <div id="currentTemperature"></div>
             <div id="temperatureFeel"></div>
-            <div id="maxTemp">
-              Max: <span id="maxTempValue"></span>
-            </div>
-            <div id="minTemp">
-              Min: <span id="minTempValue"></span>
-            </div>
+            <div id="maxTemp">Max: <span id="maxTempValue"></span></div>
+            <div id="minTemp">Min: <span id="minTempValue"></span></div>
           </div>
-          <div class="weatherImage">test</div>
         </div>
         <div class="forecasts">
           <div class="fifteenForecast">

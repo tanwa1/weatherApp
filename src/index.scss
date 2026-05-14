@@ -1,10 +1,42 @@
+:root {
+  --bg-primary: #131627;
+  --bg-sidebar: #161929;
+  --bg-main: #1a2744;
+  --bg-card: #1e2f52;
+  --bg-bar-track: #2a2f45;
+
+  --text-primary: #e2e8f0;
+  --text-muted: #6b7280;
+  --text-accent: #93c5fd;
+
+  --bar-humidity: #378ADD;
+  --bar-wind: #1D9E75;
+  --bar-uv: #EF9F27;
+  --bar-visibility: #534AB7;
+
+  --color-sunrise: #FAC775;
+  --color-sunset: #EF9F27;
+}
+
+div, span{
+  color: var(--text-primary);
+}
+
+.sunrise{
+  color: var(--color-sunrise);
+}
+.sunset{
+  color: var(--color-sunset);
+}
+
 body {
   height: 100%;
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-  color: #343a40;
+  color: var(--text-primary);
 }
+
 #foo {
   display: none;
   position: fixed;
@@ -26,16 +58,25 @@ body {
   height: 100vh;
   gap: 1px;
 
+  img {
+    height: 5rem;
+    width: 5rem;
+  }
+
   .sideBar {
     display: grid;
     grid-template-rows: repeat(3, 1fr);
     min-height: 100vh;
-    width: 20%;
     gap: 1px;
-    border: solid 1px black;
+    background-color: var(--bg-sidebar);
+    width: 350px;
+    flex-shrink: 0;
+
+    #stats{
+      margin: 1.5rem;
+    }
 
     .searchCity,
-    #stat,
     .sun-info {
       display: flex;
       flex-direction: column;
@@ -46,8 +87,6 @@ body {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      border: solid 1px black;
-      flex: 1;
     }
 
     .bar-track {
@@ -60,11 +99,11 @@ body {
       height: 4px;
       width: 100%;
       border-radius: 2px;
-      /* width is set dynamically via JS */
     }
 
     .searchBar {
       display: flex;
+      justify-content: center;
       flex-direction: row;
       gap: 3px;
     }
@@ -80,11 +119,10 @@ body {
     grid-template-rows: 1fr 1fr;
     width: 100%;
     gap: 1px;
-    border: solid 1px black;
+    background-color: var(--bg-main);
 
     .weather {
       display: flex;
-      border: solid 1px black;
       gap: 3px;
 
       .currentWeather {
@@ -95,9 +133,6 @@ body {
         align-items: center;
       }
 
-      // #currentWeatherTitle {
-      // }
-
       #currentTemperature {
         font-size: 5rem;
         height: 5rem;
@@ -107,23 +142,28 @@ body {
         font-size: 5rem;
         height: 5rem;
       }
-      .weatherImage {
-        border: 1px solid black;
+      .currentWeatherImage {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         width: 100%;
+
+        img{
+          height: 30rem;
+          width: 30rem;
+        }
       }
-      // #maxTemp,
-      // #minTemp {
-      // }
     }
 
     .forecasts {
       display: flex;
       flex-direction: column;
-      border: solid 1px black;
+      // border: solid 1px black;
       gap: 12px;
 
       .fifteenForecast {
-        font-size: 1.5rem; // ✅ slightly bigger title
+        font-size: 1.5rem; 
         font-weight: bold;
         padding: 12px;
       }
@@ -139,11 +179,11 @@ body {
       }
 
       .forecast-card {
-        background-color: #1e2a3a;
+        background-color: var(--bg-card);
         color: #fff;
         padding: 16px;
         border-radius: 12px;
-        flex: 1 0 220px; // grows, doesn't shrink below 220px
+        flex: 1 0 220px; 
         min-width: 180px;
         max-width: 300px;
         height: 15rem;
@@ -155,14 +195,6 @@ body {
         font-size: 14px;
         margin-bottom: 10px;
       }
-
-      // .forecast-icon {
-      //   width: 40px;
-      //   height: 40px;
-      //   border-radius: 50%;
-      //   background-color: #d4a85f;
-      //   margin: 0 auto 10px auto;
-      // }
 
       .forecast-max {
         font-size: 20px;

@@ -10,7 +10,7 @@ import {
   thunderStorm,
   windy,
   rainOverCast,
-  rainPartialCloud
+  rainPartialCloud,
 } from "../assets/index.js";
 
 export function renderCity(data) {
@@ -27,32 +27,26 @@ export function renderCity(data) {
 export function renderStats(data) {
   const current = data.currentConditions;
 
-  const stats = [
-    {
-      label: "Humidity: ",
-      value: `${current.humidity}%`,
-      percent: current.humidty,
-      color: "#378ADD",
-    },
-    {
-      label: "Wind Speed: ",
-      value: `${current.windspeed} km/h`,
-      percent: (current.windspeed / 60) * 100,
-      color: "#1D9E75",
-    },
-    {
-      label: "UV Index: ",
-      value: `${current.uvindex}`,
-      percent: (current.uvindex / 11) * 100,
-      color: "#EF9F27",
-    },
-    {
-      label: "Visibility: ",
-      value: `${current.visibility} km`,
-      percent: (current.visibility / 10) * 100,
-      color: "#534AB7",
-    },
-  ];
+  document.getElementById("humidityValue").textContent = `${current.humidity}%`;
+  document.getElementById("humidityBar").style.width = `${current.humidity}%`;
+  document.getElementById("humidityBar").style.background = "#378ADD";
+
+  document.getElementById("windValue").textContent =
+    `${current.windspeed} km/h`;
+  document.getElementById("windBar").style.width =
+    `${Math.min((current.windspeed / 60) * 100, 100)}%`;
+  document.getElementById("windBar").style.background = "#1D9E75";
+
+  document.getElementById("uvValue").textContent = current.uvindex;
+  document.getElementById("uvBar").style.width =
+    `${Math.min((current.uvindex / 11) * 100, 100)}%`;
+  document.getElementById("uvBar").style.background = "#EF9F27";
+
+  document.getElementById("visibilityValue").textContent =
+    `${current.visibility} km`;
+  document.getElementById("visibilityBar").style.width =
+    `${Math.min((current.visibility / 10) * 100, 100)}%`;
+  document.getElementById("visibilityBar").style.background = "#534AB7";
 
   document.querySelector(".value.sunrise").textContent = formatTime(
     current.sunrise,
@@ -62,28 +56,6 @@ export function renderStats(data) {
   );
   document.querySelector(".value.precip").textContent =
     `${current.precip ?? 0} mm`;
-
-  const container = document.getElementById("stat");
-  container.innerHTML = stats
-    .map(
-      (s) => `
-    <div class="stat">
-      <div class="stat-header">
-        <span class="label">${s.label}</span>
-        <span class="value">${s.value}</span>
-      </div>
-      <div class="bar-track">
-        <div class="bar-fill" style="width: ${Math.min(s.percent, 100)}%;">
-        </div>
-      </div>
-    </div>
-  `,
-    )
-    .join("");
-
-  container.querySelectorAll(".bar-fill").forEach((bar, i) => {
-    bar.style.background = stats[i].color;
-  });
 }
 
 export function formatTime(time) {
@@ -115,12 +87,25 @@ export function renderCurrentWeather(data) {
 export function renderForecasts(data) {
   const forecastsContainer = document.querySelector(".forecasts");
 
-  const oldCardContainer = forecastsContainer.querySelector(".cardContainer");
-  if (oldCardContainer) oldCardContainer.remove();
+  const getWeatherContainer = document.querySelector(".weather");
+
+  // Remove the old image div from getWeatherContainer
+  const oldWeatherImage = getWeatherContainer.querySelector(
+    ".currentWeatherImage",
+  );
+  if (oldWeatherImage) oldWeatherImage.remove();
+
+  // Create and append the new image div
+  const currentWeatherPic = document.createElement("div");
+  currentWeatherPic.classList.add("currentWeatherImage");
+  getWeatherContainer.appendChild(currentWeatherPic);
 
   const current = data.days;
   const cardContainer = document.createElement("div");
   cardContainer.className = "cardContainer";
+
+  const oldCardContainer = forecastsContainer.querySelector(".cardContainer");
+  if (oldCardContainer) oldCardContainer.remove();
 
   current.forEach((current) => {
     // Create card
@@ -161,8 +146,9 @@ export function renderForecasts(data) {
 
     const formatDate = format(parseISO(current.datetime), "EEEE");
 
+    const currentDay = data.currentConditions.conditions;
     const weatherConditions = current.conditions;
-    console.log(weatherConditions);
+    // console.log(currentDay);
 
     const weatherMap = new Map();
 
@@ -178,8 +164,10 @@ export function renderForecasts(data) {
     weatherMap.set("Rain, Partially cloudy", rainPartialCloud);
 
     const iconSrc = weatherMap.get(weatherConditions);
+    const iconCurrentWeather = weatherMap.get(currentDay);
 
     icon.innerHTML = `<img src="${iconSrc}" alt="${weatherConditions}"/>`;
+    currentWeatherPic.innerHTML = `<img src="${iconCurrentWeather}" alt="${weatherConditions}"/>`;
 
     day.textContent = formatDate;
     max.textContent = current.tempmax;
@@ -187,4 +175,3 @@ export function renderForecasts(data) {
     desc.textContent = current.conditions;
   });
 }
-
