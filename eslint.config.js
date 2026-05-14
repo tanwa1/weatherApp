@@ -7,11 +7,12 @@ export default defineConfig([
     files: ["**/*.{js,mjs,cjs}"],
     plugins: { js },
     extends: ["js/recommended"],
-    languageOptions: { globals: globals.browser },
-    parser: "babel-eslint",
-    parserOptions: {
-      sourceType: "module",
-      allowImportExportEverywhere: true,
+    languageOptions: {
+      globals: globals.browser,
+      parserOptions: {
+        sourceType: "module",
+        allowImportExportEverywhere: true,
+      },
     },
   },
 ]);

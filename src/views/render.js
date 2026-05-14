@@ -1,5 +1,4 @@
 import { format, parseISO } from "date-fns";
-import { sunny } from "../assets/index.js";
 import {
   clear,
   fog,
@@ -76,7 +75,6 @@ export function renderCurrentWeather(data) {
   const maxTemp = document.getElementById("maxTempValue");
   const minTemp = document.getElementById("minTempValue");
 
-  const createForecats = document.createElement("div");
   const current = data.currentConditions;
 
   currentTemperature.textContent = current.temp;

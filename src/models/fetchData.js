@@ -6,7 +6,7 @@ export async function getCity(url) {
     const response = await fetch(url);
     const cityData = await response.json();
 
-    await new Promise((resolve, reject) => setTimeout(resolve, 2000));
+    await new Promise((resolve) => setTimeout(resolve, 2000));
 
     return cityData;
   } catch (error) {
