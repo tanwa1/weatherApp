@@ -19,10 +19,9 @@ async function fetchWeather() {
   getCityData(cityData);
 }
 
-// Button click
+
 getButton.addEventListener("click", fetchWeather);
 
-// Enter key
 document.getElementById("searchCity").addEventListener("keydown", (e) => {
   if (e.key === "Enter") fetchWeather();
 });
