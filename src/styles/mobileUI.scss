@@ -1,12 +1,81 @@
-@media (max-width: 768px) {
+@media (max-width: 846px) {
   .mainInterface {
     flex-direction: column;
-  }
 
-  .mainContent {
-    order: 1;
-  }
-  .sideBar {
-    order: 2;
+    img {
+      height: 3rem;
+      width: 3rem;
+    }
+
+    .mainContent {
+      order: 1;
+
+      .weather {
+        display: flex;
+        gap: 3px;
+
+        .currentWeather {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
+
+        #currentTemperature {
+          font-size: 2rem;
+          height: 2rem;
+        }
+
+        .temperatureFeel {
+          font-size: 2rem;
+          height: 2rem;
+        }
+        .currentWeatherImage {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+
+          img {
+            height: 5rem;
+            width: 5rem;
+          }
+        }
+      }
+
+      .forecasts {
+        .fifteenForecast {
+          font-size: 15px;
+          padding: 5px;
+        }
+
+        .cardContainer {
+          margin-left: 5px;
+          width: 100%;
+        }
+
+        .forecast-card {
+          padding: 3px;
+          border-radius: 12px;
+          min-width: 2rem;
+          max-width: 10rem;
+          height: 12rem;
+        }
+
+        .forecast-day,
+        .forecast-max,
+        .forecast-min,
+        .forecast-dex {
+          font-size: 0.9rem;
+        }
+      }
+    }
+
+    .sideBar {
+      order: 2;
+      width: 100%;
+    }
   }
 }
+

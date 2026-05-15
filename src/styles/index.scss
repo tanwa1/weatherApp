@@ -129,6 +129,7 @@ body {
       justify-content: center;
       align-items: center;
       text-align: center;
+      margin-top: 1rem;
 
       .searchBar {
         display: flex;
@@ -205,6 +206,8 @@ body {
     .forecasts {
       display: flex;
       flex-direction: column;
+      overflow: hidden; 
+      width: 100%;
       gap: 12px;
 
       .fifteenForecast {
@@ -219,8 +222,8 @@ body {
         flex-direction: row;
         gap: 5px;
         margin: 5px;
-        width: 100rem;
-        overflow-x: scroll;
+        width: 100%;
+        overflow-x: auto;
       }
 
       .forecast-card {

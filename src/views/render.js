@@ -10,7 +10,7 @@ import {
   windy,
   rainOverCast,
   rainPartialCloud,
-  snowRainPartialCloud
+  snowRainPartialCloud,
 } from "../assets/index.js";
 
 export function renderCity(data) {
@@ -175,6 +175,14 @@ export function renderForecasts(data) {
     desc.textContent = current.conditions;
   });
 
-  document.getElementById("visibilityValue").textContent = 
-  `${current.visibility ?? "N/A"} km`;
+  document.getElementById("visibilityValue").textContent =
+    `${current.visibility ?? "N/A"} km`;
+
+  const container = document.querySelector(".cardContainer");
+
+  container.addEventListener("wheel", (e) => {
+    e.preventDefault();
+    container.scrollLeft += e.deltaY;
+  });
+  
 }
