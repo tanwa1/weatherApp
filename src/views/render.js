@@ -88,13 +88,11 @@ export function renderForecasts(data) {
 
   const getWeatherContainer = document.querySelector(".weather");
 
-  // Remove the old image div from getWeatherContainer
   const oldWeatherImage = getWeatherContainer.querySelector(
     ".currentWeatherImage",
   );
   if (oldWeatherImage) oldWeatherImage.remove();
 
-  // Create and append the new image div
   const currentWeatherPic = document.createElement("div");
   currentWeatherPic.classList.add("currentWeatherImage");
   getWeatherContainer.appendChild(currentWeatherPic);
@@ -107,38 +105,38 @@ export function renderForecasts(data) {
   if (oldCardContainer) oldCardContainer.remove();
 
   current.forEach((current) => {
-    // Create card
+
     const card = document.createElement("div");
     card.classList.add("forecast-card");
 
-    // Day
+
     const day = document.createElement("div");
     day.classList.add("forecast-day");
 
-    // Icon placeholder
+
     const icon = document.createElement("div");
     icon.classList.add("forecast-icon");
 
-    // Max temp
+
     const max = document.createElement("div");
     max.classList.add("forecast-max");
 
-    // Min temp
+
     const min = document.createElement("div");
     min.classList.add("forecast-min");
 
-    // Description
+
     const desc = document.createElement("div");
     desc.classList.add("forecast-desc");
 
-    // Append all to card
+
     card.appendChild(day);
     card.appendChild(icon);
     card.appendChild(max);
     card.appendChild(min);
     card.appendChild(desc);
 
-    // Append card to container
+
     cardContainer.appendChild(card);
 
     forecastsContainer.appendChild(cardContainer);
@@ -147,7 +145,7 @@ export function renderForecasts(data) {
 
     const currentDay = data.currentConditions.conditions;
     const weatherConditions = current.conditions;
-    // console.log(currentDay);
+
 
     const weatherMap = new Map();
 
